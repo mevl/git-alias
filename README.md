@@ -19,16 +19,19 @@ Just copy .bashrc file content to same file in your existing home directory
 > In branchName aliases is allowed:
 > - in \- integration
 > - hf \- hotfix
-> - i \- issue\_ prefix
-> - c \- issue\_CENTER\- prefix
+> - c \- issue\_CENTER\- prefix (digit must follow after 'c')
+> - d \- issue\_DEV\- prefix (digit must follow after 'd')
+> - i_ \- issue\_ prefix
 >
 > Examples:
 > - go \[params\] in `git checkout [params] integration`
 > - go \[params\] hf `git checkout [params] hotfix`
-> - go \[params\] i5678 `git checkout [params] issue_5678`
-> - go \[params\] iTODO-9876 `git checkout [params] issue_TODO-9876`
 > - go \[params\] c12345 `git checkout [params] issue_CENTER-12345`
-> - go \[params\] cfix432 `git checkout [params] issue_CENTER-fix432`
+> - go \[params\] cfix432 `git checkout [params] cfix432` (prefix don't work, no digit character after 'c')
+> - go \[params\] d98765 `git checkout [params] issue_DEV-98765`
+> - go \[params\] dfix4321 `git checkout [params] dfix4321` (prefix don't work, no digit character after 'd')
+> - go \[params\] i_5678 `git checkout [params] issue_5678`
+> - go \[params\] i_TODO-9876 `git checkout [params] issue_TODO-9876`
 
 ##### git commit
 - gc \[params\] `git commit -c ORIG_HEAD [params]`

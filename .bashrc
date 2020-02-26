@@ -57,7 +57,7 @@ function grh {
 ##################################
 # below is internal usage only
 
-#execute command 
+#execute command
 function executeCommand() {
     echo -e "\e[1;36m> $1\e[0m"
 	eval $1
@@ -72,23 +72,26 @@ function processParams() {
 	else
 		params=""
 		branch="$@"
-	fi	
+	fi
 
 	case ${branch::2} in
 		in)
-			echo "${params}integration"	
+			echo "${params}integration"
 			;;
 		hf)
-			echo "${params}hotfix"	
-			;;	
-        i?)
-            echo "${params}issue_${branch:1}"	
-			;;		
-	    c?)
-			echo "${params}issue_CENTER-${branch:1}"	
+			echo "${params}hotfix"
+			;;
+		c[0-9])
+			echo "${params}issue_CENTER-${branch:1}"
+			;;
+		d[0-9])
+			echo "${params}issue_DEV-${branch:1}"
+			;;
+        i[_])
+            echo "${params}issue${branch:1}"
 			;;
 		*)
             echo "${params}$branch"
 			;;
-	esac		
+	esac
 }
